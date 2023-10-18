@@ -1,11 +1,11 @@
-import './style.css'
+import {Title , Paragraph} from './style'
 
 export function Details() {
 
   return(
     <>
-      <h1>Começando com o React</h1>
-      <p>Testando funcionalidades</p>
+      <Title>Começando com o React</Title>
+      <Paragraph>Testando funcionalidades</Paragraph>
     </>
   )
 }
