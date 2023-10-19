@@ -11,4 +11,17 @@ export default createGlobalStyle`
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_800};
         color:${({theme}) => theme.COLORS.WHITE};
     }
+    
+
+    body,button,input,textarea {
+        font-family: 'Roboto Slab', serif;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button , a {
+        cursor: pointer;
+    }
 `;
