@@ -1,6 +1,6 @@
 import { Container } from "./style";
 
-export default function Button({title , loading = false}){
+export function Button({title , loading = false}){
     return(
         <Container 
         type="button"

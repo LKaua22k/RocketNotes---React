@@ -1,10 +1,17 @@
+import {Container} from './style'
+
+import {Header} from '../../Components/Header'
+import {Button} from '../../Components/Buttons'
+
+
 export function Details() {
 
   return(
-    <div>
-      <h1>Começando com o React</h1>
-      <p>Testando funcionalidades</p>
-    </div>
+    <Container>
+      <Header />
+
+      <Button title='Voltar'></Button>
+    </Container>
   )
 }
 
