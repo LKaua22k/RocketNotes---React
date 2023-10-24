@@ -1,4 +1,5 @@
-import {Container , Profile} from './style'
+import { RiShutDownLine } from 'react-icons/ri'
+import {Container , Profile, Logout} from './style'
 
 export function Header(){
     return(
@@ -10,6 +11,10 @@ export function Header(){
                     <strong>Texto 2</strong>
                 </div>
             </Profile>
+
+            <Logout>
+                <RiShutDownLine />
+            </Logout>
            </Container> 
         )
 }
