@@ -4,6 +4,7 @@ import {Header} from '../../Components/Header'
 import {Button} from '../../Components/Buttons'
 import {Section} from '../../Components/Section'
 import {Tag} from '../../Components/Tags'
+import {ButtonText} from '../../Components/ButtonText'
 
 
 export function Details() {
@@ -11,6 +12,7 @@ export function Details() {
   return(
     <Container>
       <Header />
+      <ButtonText  title='Excluir a nota' />
 
       <Section title='Links úteis'>
           <ul>
