@@ -7,7 +7,7 @@ export const Container = styled.button`
 
     font-size: 16px;
     font-weight: 400;
-    color: ${({theme}) => theme.COLORS.ORANGE};
+    color: ${({theme , isActive}) => isActive ? theme.COLORS.ORANGE : theme.COLORS.BACKGROUND_700};
 
     &:hover{
         opacity: 0.7;
