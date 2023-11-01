@@ -68,4 +68,10 @@ export const NewNote = styled.button`
     padding: 27px 63px;
     background-color:  ${({theme}) => theme.COLORS.ORANGE};
     border: none;
+    transition: 0.5s;
+
+    &:hover{
+        filter: brightness(0.5);
+        transition: 0.5s;
+    }
 `;

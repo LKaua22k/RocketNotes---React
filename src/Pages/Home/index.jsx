@@ -30,14 +30,8 @@ export function Home(){
 
                 <Content>
                     <Section title='Minhas notas'>
-                        <Note data={{
-                            title: 'React Model',
-                            tags: [
-                                {id: '1' , name:'react'},
-                                {id: '2' ,name:'Node'},
-                            ]
-                            }} 
-                            />
+                        <Note data={{title: 'React Model', tags: [{id: '1' , name:'react'},{id: '2' ,name:'Node'},]}} />
+                        <Note data={{title: 'Rocket Notes', tags: [{id: '3' , name:'react'},{id: '4' ,name:'Node'},]}} />
                     </Section>
                 </Content>
                 
