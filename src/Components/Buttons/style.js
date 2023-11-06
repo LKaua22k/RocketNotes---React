@@ -6,6 +6,7 @@ export const Container = styled.button`
     padding: 0 16px;
     border: 0;
     border-radius: 10px;
+    transition: .5s;
 
     background-color: ${({theme}) => theme.COLORS.ORANGE};
     color: ${({theme}) => theme.COLORS.BACKGROUND_800};
@@ -15,5 +16,10 @@ export const Container = styled.button`
 
     &:disabled {
         opacity: 0.5;
+    }
+
+    &:hover{
+        opacity: 0.8;
+        transition: .5s;
     }
 `;
