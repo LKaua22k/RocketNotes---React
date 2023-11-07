@@ -43,6 +43,7 @@ export const Form = styled.form`
         &:hover{
             opacity: 0.5;
             transition: .5s;
+            
         }
     }
 
