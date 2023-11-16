@@ -5,6 +5,7 @@ import {Input} from '../../Components/Input'
 import {Textarea} from '../../Components/Textarea'
 import {Section} from '../../Components/Section'
 import {NoteItem} from '../../Components/NoteItem'
+import {Button} from '../../Components/Buttons'
 
 export function New(){
     return(
@@ -24,8 +25,14 @@ export function New(){
                     <NoteItem value='https://www.rocketseat.com.br'/>
                     <NoteItem  isNew placeholder='Novo link'/>
 
-                    <Section title='Marcadores'/>
-
+                    <Section title='Marcadores'>
+                        <div className="tags">
+                            <NoteItem value='React'/>
+                            <NoteItem isNew value='Nodejs'/>
+                        </div>
+                    </Section>
+                    
+                    <Button title="Salvar" />
                 </Form>
             </main>
         </Container>
