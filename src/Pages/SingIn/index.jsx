@@ -1,3 +1,5 @@
+import {useAuth} from '../../hooks/auth'
+import { useState } from 'react';
 import {FiLogIn, FiLock , FiMail} from "react-icons/fi"
 import { Link } from "react-router-dom";
 
@@ -8,6 +10,15 @@ import { Container, Form, Background} from "./style";
 
 
 export function SingIn(){
+    const [email , setEmail] = useState("")
+    const [password , setPassword] = useState("")
+
+    const {singIn} = useAuth()
+    
+    function hadleSingIn(){
+        singIn({email , password})
+    }
+
     return(
         <Container>
             <Form>
@@ -16,10 +27,10 @@ export function SingIn(){
 
                 <h2>Faça seu login</h2>
 
-                <Input  placeholder="E-mail" type="text" icon={FiMail} />
-                <Input  placeholder="Senha" type="password" icon={FiLock} />
+                <Input  placeholder="E-mail" type="text" icon={FiMail}  onChange={ e => setEmail(e.target.value)}/>
+                <Input  placeholder="Senha" type="password" icon={FiLock} onChange={ e => setPassword(e.target.value)}/>
 
-                <Button title="Entrar" />
+                <Button title="Entrar" onClick={hadleSingIn}/>
 
                 <Link to="/register">Criar conta</Link>
 

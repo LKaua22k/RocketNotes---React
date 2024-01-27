@@ -22,7 +22,7 @@ export const Container = styled.div`
 export const Links = styled.ul`
     list-style: none;
 
-    > li{
+    > li a{
         color: ${({theme}) => theme.COLORS.WHITE};
     }
 `;

@@ -1,4 +1,7 @@
 import {Container, Links,  Content} from './style'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useState,useEffect } from 'react'
+import { api } from '../../services/api'
 
 import {Header} from '../../Components/Header'
 import {Button} from '../../Components/Buttons'
@@ -8,36 +11,87 @@ import {ButtonText} from '../../Components/ButtonText'
 
 
 export function Details() {
+  const [data, setData] = useState(null);
+
+  const params = useParams();
+  const navigate = useNavigate()
+
+  function handdleBack(){
+    navigate(-1)
+  }
+
+  async function handdleRemove(){
+    const confirm = window.confirm('Deseja excluir essa nota?')
+
+    if(confirm){
+      api.delete(`/notes/${params.id}`)
+      navigate(-1)
+    }
+  }
+  
+  useEffect(() => {
+    async function fetchNote(){
+      const response = await api.get(`/notes/${params.id}`);
+      setData(response.data)
+    }
+
+    fetchNote();
+    
+  }, [])
+  
+
 
   return(
     <Container>
       <Header />
+        {
+          data && 
+            <main>
+              <Content>
+                <ButtonText  title='Excluir a nota' onClick={handdleRemove}/>
+                
+                <h1>
+                  {data.title}
+                </h1>
 
-      <main>
-        <Content>
-          <ButtonText  title='Excluir a nota' />
-          
-          <h1>Introdução ao React</h1>
+                <p>
+                  {data.description}
+                </p>
 
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-</p>
+                {
+                  data.links &&   
+                    <Section title='Links úteis'>
+                      <Links>
+                        {
+                          data.links.map(link => {
+                            return(
+                              <li key={String(link.id)}> <a href={link.url} target="_blank">{link.url}</a></li>
+                            )
+                          })
+                        }    
 
+                      </Links>
+                    </Section>
+                }
 
-          <Section title='Links úteis'>
-              <Links>
-                <li>1</li>
-                <li>2</li>
-              </Links>
-          </Section>
+                {
+                  data.tags && 
+                    <Section title='Marcadores'>
+                      {
+                        data.tags.map(tag => {
+                          return(
+                            <Tag key={String(tag.id)} title={tag.name}/>
+                          )
+                        })
+                      }
+                    </Section>
+                }
 
-          <Section title='Marcadores'>
-            <Tag title='Express'/>
-            <Tag title='Nodejs'/>
-          </Section>
+                <Button title='Voltar' onClick={handdleBack}></Button>
+              </Content>
+            </main>
 
-          <Button title='Voltar'></Button>
-        </Content>
-      </main>
+        }
     </Container>
   )
 }
